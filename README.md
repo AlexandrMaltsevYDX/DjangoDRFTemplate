@@ -1,0 +1,2 @@
+# DjangoDRFTemplate
+TemplateForNewDjangoProject
