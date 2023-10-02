@@ -1,0 +1,16 @@
+FROM node:18-alpine
+# make workdir in frontend-mashine
+WORKDIR /usr/src/frontend
+
+# copy package.json to workdir
+COPY ./frontend/package.json .
+
+# install all packages
+RUN yarn
+
+
+COPY ./frontend/ .
+
+# EXPOSE 5173
+
+CMD ["yarn", "dev"]

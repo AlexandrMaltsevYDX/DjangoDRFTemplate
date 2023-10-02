@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+    nginx:
+        container_name: nginx
+        image: nginx:1.24-alpine-slim
+        ports:
+            - "80:80"
+        volumes:
+            - ./docker/nginx/configs/:/etc/nginx/conf.d/
+            - ./backend/media:/media
+        depends_on:
+            - backend
+        networks:
+            - re_network
+
+volumes:
+    media:
+        driver: local
+networks:
+    re_network:
+        driver: bridge

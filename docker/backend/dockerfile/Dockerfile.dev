@@ -1,0 +1,30 @@
+FROM python:3.10-slim-buster
+
+# install dependensies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    gcc \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    python3-dev \
+    libpq-dev \
+    # gdal-bin \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
+# fast output
+ENV PYTHONUNBUFFERED 1
+
+# no .pyc __cash__ files
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# create and make cursor into curent dir
+WORKDIR /usr/src/backend
+
+# copy and paste to curent dir requirements, entrypoint, fixtures
+COPY ./backend ./
+RUN pip install -r requirements.txt
+COPY ./docker/backend/dockerfile/entrypoint.sh /usr/local/bin/entrypoint.sh
+
+# add aditional rights to entrypoint
+RUN chmod +x /usr/local/bin/entrypoint.sh

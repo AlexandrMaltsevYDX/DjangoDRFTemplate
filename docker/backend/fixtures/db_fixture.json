@@ -1,0 +1,26 @@
+[
+    {
+        "model": "cards.cardmodel",
+        "pk": 1,
+        "fields": {
+            "name": "one",
+            "image": "images/Screenshot_from_2023-09-29_12-28-50.png"
+        }
+    },
+    {
+        "model": "cards.cardmodel",
+        "pk": 2,
+        "fields": {
+            "name": "two",
+            "image": "images/Screenshot_from_2023-09-28_21-08-44.png"
+        }
+    },
+    {
+        "model": "cards.cardmodel",
+        "pk": 3,
+        "fields": {
+            "name": "three",
+            "image": "images/Screenshot_from_2023-09-29_12-28-50_WZYUQs7.png"
+        }
+    }
+]

@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+    frontend:
+        container_name: frontend
+        build:
+            context: .
+            dockerfile: ./docker/frontend/dockerfile/Dockerfile.dev
+        volumes:
+            - ./frontend:/usr/src/frontend
+        ports:
+            - 5173:5173
+        tty: true
+        networks:
+            - re_network
+
+volumes:
+    postgres_data:
+        driver: local
+networks:
+    re_network:
+        driver: bridge
